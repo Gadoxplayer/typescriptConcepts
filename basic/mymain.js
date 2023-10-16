@@ -39,6 +39,9 @@ let mystique;
 mystique = charles;
 mystique = apocalipsis;
 (() => {
+    console.log('let');
+})();
+(() => {
     const fullName = (fisrtname, lastname, upper = false) => {
         if (upper) {
             return `${fisrtname} ${lastname || "----"}`.toUpperCase();
@@ -149,7 +152,6 @@ mystique = apocalipsis;
 (() => {
     const numbers = [1, 2, 3, '14'];
     numbers.push('11');
-    numbers.push(true);
     console.log(numbers);
     const villians = ['pepe', 'pepito'];
     numbers.forEach(n => console.log(n));
@@ -158,7 +160,6 @@ mystique = apocalipsis;
     let isHero = true;
     let isVillain;
     console.log({ isHero });
-    console.log({ isVillain });
     isHero = true && false;
     console.log(isHero);
 })();

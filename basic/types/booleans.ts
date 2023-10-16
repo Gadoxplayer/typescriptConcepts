@@ -4,7 +4,7 @@
     let isVillain: boolean;
 
     console.log({isHero});
-    console.log({isVillain});
+    //console.log({isVillain});
     
     isHero = true && false;
 
