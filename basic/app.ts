@@ -1,78 +1,84 @@
-//type objects
+// Crear interfaces
 
-type objectsTypeCar = {
-  carroceria: string,
-  modelo: string,
-  antibalas: boolean,
-  pasajeros: number,
-  disparar?: () => void
+interface superCar {
+  encender: boolean,
+  velocidadMaxima: number,
+  acelear(): void;
 }
 
+// Cree una interfaz para validar el auto (el valor enviado por parametro)
+const conducirBatimovil = ( auto: superCar ):void => {
+  auto.encender = true;
+  auto.velocidadMaxima = 100;
+  auto.acelear();
+}
 
-// Objetos
-const batimovil: objectsTypeCar = {
-  carroceria: "Negra",
-  modelo: "6x6",
-  antibalas: true,
-  pasajeros:4
-};
-
-const bumblebee: objectsTypeCar = {
-  carroceria: "Amarillo con negro",
-  modelo: "4x2",
-  antibalas: true,
-  pasajeros:4,
-  disparar(){ // El metodo disparar es opcional
-    console.log("Disparando");
+const batimovil: superCar = {
+  encender:false,
+  velocidadMaxima:0,
+  acelear(){
+    console.log("...... gogogo!!!");
   }
-};
+}
 
-type villanosType = {
+// Cree una interfaz con que permita utilzar el siguiente objeto
+// utilizando propiedades opcionales
+
+interface villain {
+  reir?: boolean,
+  comer?: boolean,
+  llorar?: boolean
+}
+
+const guason: villain = {
+  reir: true,
+  comer:true,
+  llorar:false
+}
+
+const reir = ( guason: villain ):void => {
+  if( guason.reir ){
+    console.log("JAJAJAJA");
+  }
+}
+
+
+// Cree una interfaz para la siguiente funcion
+
+interface comicCity {
+  (ciudadanos: string[]): number,
+}
+
+const ciudadGotica:comicCity = ( ciudadanos:string[] ):number => {
+  return ciudadanos.length;
+}
+
+
+
+// Cree una interfaz que obligue crear una clase
+// con las siguientes propiedades y metodos
+
+/*
+  propiedades:
+    - nombre
+    - edad
+    - sexo
+    - estadoCivil
+    - imprimirBio(): void // en consola una breve descripcion.
+*/
+interface peopleOB {
   nombre: string,
-  edad: number | undefined,
-  mutante: boolean,
+  edad: number,
+  sexo: string,
+  estadoCivil: string,
+  imprimirBio(): void
 }
+class Persona implements peopleOB {
 
-// Villanos debe de ser un arreglo de objetos personalizados
-const villanos: villanosType[] = [{
-  nombre:"Lex Luthor",
-  edad: 54,
-  mutante:false
-},{
-  nombre: "Erik Magnus Lehnsherr",
-  edad: 49,
-  mutante: true
-},{
-  nombre: "James Logan",
-  edad: undefined,
-  mutante: true
-}];
+  public nombre: string;
+  public edad: number;
+  sexo: string;
+  estadoCivil: string;
+  imprimirBio() {}
 
-// Multiples tipos
-// cree dos tipos, uno para charles y otro para apocalipsis
-
-type profCharles = {
-  poder: string,
-  estatura: number
 }
-
-const charles: profCharles = {
-  poder:"psiquico",
-  estatura: 1.78
-};
-
-type apocalipsistype = {
-  lider: boolean,
-  miembros: string[]
-}
-
-const apocalipsis: apocalipsistype = {
-  lider:true,
-  miembros: ["Magneto","Tormenta","Psylocke","Angel"]
-}
-
-// Mystique, debe poder ser cualquiera de esos dos mutantes (charles o apocalipsis)
-let mystique: profCharles | apocalipsistype;
-
-mystique = charles;
-mystique = apocalipsis;

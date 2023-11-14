@@ -20,7 +20,8 @@
             return 'Done';        }
     }
 
-    const Pepe = new Xmen('hola', 'hola');
+    //let coso = new Mutant('h', 'h');
+    const Pepe: Xmen = new Xmen('hola', 'hola');
 
     const MAgneto = new Billian('malo', 'maloso');
 
