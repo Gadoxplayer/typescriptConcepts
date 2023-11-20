@@ -1,18 +1,9 @@
-import { Hero as NickHero, HeroUno } from "./classes/Hero";
-import powers from "./data/powers";
-//import * as NickHeroClasses from "./classes/Hero";
+import { getPokemon } from "./generics/getPokemon";
 
+console.log(getPokemon(986));
 
-console.log('Hola Mundo!');
-
-const Hero = 123;
-
-//using an alias
-const ironMan = new NickHero('Coso', 'coso', 1);
-//const ironMan = new NickHeroClasses.Hero('Coso', 'coso', 1);
-console.log({ironMan});
-
-console.log( powers[0] );
-
-
-
+getPokemon(76)
+    .then( res => console.log( res ) )
+    .catch( error => console.error( error ) )
+    .finally( () => console.log('done') );
+    
