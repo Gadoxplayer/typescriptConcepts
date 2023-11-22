@@ -2,8 +2,8 @@ import { getPokemon } from "./generics/getPokemon";
 
 console.log(getPokemon(986));
 
-getPokemon(76)
-    .then( res => console.log( res ) )
+getPokemon(764)
+    .then( res => console.log( res.name ) )
     .catch( error => console.error( error ) )
     .finally( () => console.log('done') );
     
