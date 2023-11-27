@@ -12,4 +12,11 @@ import { Pokemon } from "./decorators/pokemon";
 
 const Charmander = new Pokemon('Charmander');
 
+//Charmander.publicApi = 'empty'; //wont allow this because of the decorator 
+
 console.log(Charmander);
+
+//(Pokemon.prototype as any).customeName = 'Pika';
+
+Charmander.savePokeToPc(400);
+
